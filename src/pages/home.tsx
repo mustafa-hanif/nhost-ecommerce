@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@nhost/react-auth';
-import { Flex } from '@/components';
+import { Flex } from 'src/components';
 import { APP_NAME, APP_DESCRIPTION } from '@/lib/constants';
 
 function Home() {

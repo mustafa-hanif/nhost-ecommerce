@@ -1,5 +1,4 @@
-// Global CSS can not import from other than this custom App
-import '@/styles/globals.css';
+import 'tailwindcss/tailwind.css';
 import React from 'react';
 import { Provider as JotaiProvider } from 'jotai';
 import { NhostAuthProvider } from '@nhost/react-auth';

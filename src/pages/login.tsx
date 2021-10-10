@@ -11,7 +11,7 @@ import {
   Text,
   Logo,
   Input,
-} from '@/components';
+} from 'src/components';
 import { auth } from '@/lib/nhost';
 import { APP_NAME } from '@/lib/constants';
 

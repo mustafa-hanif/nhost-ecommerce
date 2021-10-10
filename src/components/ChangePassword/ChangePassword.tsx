@@ -8,7 +8,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import { auth } from '@/lib/nhost';
-import { Input } from '@/components/Input';
+import { Input } from 'src/components/Input';
 
 export const ChangePassword = () => {
   const toast = useToast();

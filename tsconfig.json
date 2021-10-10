@@ -15,8 +15,8 @@
     "strict": true,
     "target": "es5",
     "paths": {
-      "@/components": ["components"],
-      "@/components/*": ["components/*"],
+      "@/components": ["src/components"],
+      "@/components/*": ["src/components/*"],
       "@/lib/*": ["lib/*"],
       "@/pages/*": ["src/pages/*"],
       "@/styles/*": ["styles/*"],
