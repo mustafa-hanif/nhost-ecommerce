@@ -13,6 +13,7 @@ import {
 } from '@/components';
 import { auth } from '@/lib/nhost';
 import { APP_NAME } from '@/lib/constants';
+import { SignUpError } from '@/lib/types';
 
 export default function SignUp() {
   const router = useRouter();
@@ -38,9 +39,9 @@ export default function SignUp() {
       });
 
       return await router.push('/');
-    } catch (err) {
+    } catch (err: SignUpError | any) {
       console.warn(err);
-      setError('Signup failed, please try again');
+      setError(err.message ?? 'Signup failed, please try again');
     } finally {
       setLoading(false);
     }

@@ -18,7 +18,7 @@
       "@/components": ["components"],
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
-      "@/pages/*": ["pages/*"],
+      "@/pages/*": ["src/pages/*"],
       "@/styles/*": ["styles/*"],
       "@/test/*": ["test/*"]
     },

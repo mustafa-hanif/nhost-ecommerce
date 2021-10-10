@@ -85,3 +85,9 @@ export type UserType = Exclude<BaseType, 'user_id' | 'status'> & {
   avatar_url: string | null;
   account: AccountType;
 };
+
+export type SignUpError = {
+  error: string;
+  message: string;
+  statusCode: number;
+};

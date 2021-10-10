@@ -6,7 +6,7 @@ hasura_graphql_admin_secret: 123456
 hasura_backend_plus_version: v2.4.0
 hasura_backend_plus_port: 9001
 postgres_version: 12-v0.0.3
-postgres_port: 5432
+postgres_port: 5433
 postgres_user: postgres
 postgres_password: postgres
 postgres_image: postgres
