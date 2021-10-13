@@ -1,13 +1,39 @@
 /* eslint-disable max-len */
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from '@headlessui/react';
-import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon } from '@heroicons/react/outline';
+import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, UserIcon, TagIcon, InboxIcon,InboxInIcon, UsersIcon, SpeakerphoneIcon, ReceiptTaxIcon, ViewGridAddIcon } from '@heroicons/react/outline';
+import { useRouter } from 'next/router';
+
 
 const navigation = [
-  { name: 'Dashboard', icon: HomeIcon, current: true, href: '#' },
+  { name: 'Home', icon: HomeIcon, current: true, href: '#' },
+
   {
-    name: 'Team',
-    icon: UsersIcon,
+    name: 'Orders',
+    icon: InboxInIcon,
+    current: false,
+    children: [
+      { name: 'Orders', href: '#' },
+      { name: 'Drafts', href: '#' },
+      { name: 'Abandoned Checkouts', href: '#' },
+      
+    ],
+  },
+  {
+    name: 'Products',
+    icon: TagIcon,
+    current: false,
+    children: [
+      { name: 'All Products', href: '#' },
+      { name: 'Inventory', href: '#' },
+      { name: 'Transfers', href: '#' },
+      { name: 'Collection', href: '#' },
+      { name: 'Gift Cards', href: '#' },
+    ],
+  },
+  {
+    name: 'Customers',
+    icon: UserIcon,
     current: false,
     children: [
       { name: 'Overview', href: '#' },
@@ -17,41 +43,41 @@ const navigation = [
     ],
   },
   {
-    name: 'Projects',
-    icon: FolderIcon,
-    current: false,
-    children: [
-      { name: 'Overview', href: '#' },
-      { name: 'Members', href: '#' },
-      { name: 'Calendar', href: '#' },
-      { name: 'Settings', href: '#' },
-    ],
-  },
-  {
-    name: 'Calendar',
-    icon: CalendarIcon,
-    current: false,
-    children: [
-      { name: 'Overview', href: '#' },
-      { name: 'Members', href: '#' },
-      { name: 'Calendar', href: '#' },
-      { name: 'Settings', href: '#' },
-    ],
-  },
-  {
-    name: 'Documents',
-    icon: InboxIcon,
-    current: false,
-    children: [
-      { name: 'Overview', href: '#' },
-      { name: 'Members', href: '#' },
-      { name: 'Calendar', href: '#' },
-      { name: 'Settings', href: '#' },
-    ],
-  },
-  {
-    name: 'Reports',
+    name: 'Analytics',
     icon: ChartBarIcon,
+    current: false,
+    children: [
+      { name: 'Overview', href: '#' },
+      { name: 'Members', href: '#' },
+      { name: 'Calendar', href: '#' },
+      { name: 'Settings', href: '#' },
+    ],
+  },
+  {
+    name: 'Marketing',
+    icon: SpeakerphoneIcon,
+    current: false,
+    children: [
+      { name: 'Overview', href: '#' },
+      { name: 'Members', href: '#' },
+      { name: 'Calendar', href: '#' },
+      { name: 'Settings', href: '#' },
+    ],
+  },
+  {
+    name: 'Discount',
+    icon: ReceiptTaxIcon,
+    current: false,
+    children: [
+      { name: 'Overview', href: '#' },
+      { name: 'Members', href: '#' },
+      { name: 'Calendar', href: '#' },
+      { name: 'Settings', href: '#' },
+    ],
+  },
+  {
+    name: 'Apps',
+    icon: ViewGridAddIcon,
     current: false,
     children: [
       { name: 'Overview', href: '#' },
@@ -67,6 +93,9 @@ function classNames(...classes: string[]) {
 }
 
 export default function Sidebar() {
+
+
+
   return (
     <div className="flex flex-col w-72 border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
       <div className="flex items-center flex-shrink-0 px-4">
@@ -81,8 +110,9 @@ export default function Sidebar() {
           {navigation.map((item) =>
             !item.children ? (
               <div key={item.name}>
-                <a
-                  href="#"
+                
+                <a  
+                  href="#" 
                   className={classNames(
                     item.current
                       ? 'bg-gray-100 text-gray-900'
@@ -90,7 +120,7 @@ export default function Sidebar() {
                     'group w-full flex items-center pl-2 py-2 text-sm font-medium rounded-md',
                   )}
                 >
-                  <item.icon
+                  <item.icon  
                     className={classNames(
                       item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
                       'mr-3 flex-shrink-0 h-6 w-6',
@@ -101,10 +131,10 @@ export default function Sidebar() {
                 </a>
               </div>
             ) : (
-              <Disclosure as="div" key={item.name} className="space-y-1">
+              <Disclosure as="div" key={item.name} className="space-y-1" >
                 {({ open }) => (
                   <>
-                    <Disclosure.Button
+                    <Disclosure.Button  
                       className={classNames(
                         item.current
                           ? 'bg-gray-100 text-gray-900'
@@ -112,12 +142,12 @@ export default function Sidebar() {
                         'group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500',
                       )}
                     >
-                      <item.icon
+                      <item.icon 
                         className="mr-3 flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
                       />
                       <span className="flex-1">{item.name}</span>
-                      <svg
+                      <svg 
                         className={classNames(
                           open ? 'text-gray-400 rotate-90' : 'text-gray-300',
                           'ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150',
@@ -130,7 +160,7 @@ export default function Sidebar() {
                     </Disclosure.Button>
                     <Disclosure.Panel className="space-y-1">
                       {item.children.map((subItem) => (
-                        <a
+                        <a 
                           key={subItem.name}
                           href={subItem.href}
                           className="group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50"
