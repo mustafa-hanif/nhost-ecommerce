@@ -1,23 +1,50 @@
 /* eslint-disable max-len */
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from '@headlessui/react';
-import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon, InboxInIcon } from '@heroicons/react/outline';
+import {
+  CalendarIcon,
+  ChartBarIcon,
+  FolderIcon,
+  HomeIcon,
+  UserIcon,
+  TagIcon,
+  InboxIcon,
+  InboxInIcon,
+  UsersIcon,
+  SpeakerphoneIcon,
+  ReceiptTaxIcon,
+  ViewGridAddIcon,
+} from '@heroicons/react/outline';
+import { useRouter } from 'next/router';
 
 const navigation = [
-  { name: 'Dashboard', icon: HomeIcon, current: false, href: '/' },
+  { name: 'Home', icon: HomeIcon, current: true, href: '/' },
+
   {
     name: 'Orders',
     icon: InboxInIcon,
-    current: true,
+    current: false,
     children: [
       { name: 'Orders', href: '/orders' },
       { name: 'Drafts', href: '#' },
-      { name: 'Abandoned checkouts', href: '#' },
+      { name: 'Abandoned Checkouts', href: '#' },
     ],
   },
   {
-    name: 'Team',
-    icon: UsersIcon,
+    name: 'Products',
+    icon: TagIcon,
+    current: false,
+    children: [
+      { name: 'All Products', href: '#' },
+      { name: 'Inventory', href: '#' },
+      { name: 'Transfers', href: '#' },
+      { name: 'Collection', href: '#' },
+      { name: 'Gift Cards', href: '#' },
+    ],
+  },
+  {
+    name: 'Customers',
+    icon: UserIcon,
     current: false,
     children: [
       { name: 'Overview', href: '#' },
@@ -27,41 +54,41 @@ const navigation = [
     ],
   },
   {
-    name: 'Projects',
-    icon: FolderIcon,
-    current: false,
-    children: [
-      { name: 'Overview', href: '#' },
-      { name: 'Members', href: '#' },
-      { name: 'Calendar', href: '#' },
-      { name: 'Settings', href: '#' },
-    ],
-  },
-  {
-    name: 'Calendar',
-    icon: CalendarIcon,
-    current: false,
-    children: [
-      { name: 'Overview', href: '#' },
-      { name: 'Members', href: '#' },
-      { name: 'Calendar', href: '#' },
-      { name: 'Settings', href: '#' },
-    ],
-  },
-  {
-    name: 'Documents',
-    icon: InboxIcon,
-    current: false,
-    children: [
-      { name: 'Overview', href: '#' },
-      { name: 'Members', href: '#' },
-      { name: 'Calendar', href: '#' },
-      { name: 'Settings', href: '#' },
-    ],
-  },
-  {
-    name: 'Reports',
+    name: 'Analytics',
     icon: ChartBarIcon,
+    current: false,
+    children: [
+      { name: 'Overview', href: '#' },
+      { name: 'Members', href: '#' },
+      { name: 'Calendar', href: '#' },
+      { name: 'Settings', href: '#' },
+    ],
+  },
+  {
+    name: 'Marketing',
+    icon: SpeakerphoneIcon,
+    current: false,
+    children: [
+      { name: 'Overview', href: '#' },
+      { name: 'Members', href: '#' },
+      { name: 'Calendar', href: '#' },
+      { name: 'Settings', href: '#' },
+    ],
+  },
+  {
+    name: 'Discount',
+    icon: ReceiptTaxIcon,
+    current: false,
+    children: [
+      { name: 'Overview', href: '#' },
+      { name: 'Members', href: '#' },
+      { name: 'Calendar', href: '#' },
+      { name: 'Settings', href: '#' },
+    ],
+  },
+  {
+    name: 'Apps',
+    icon: ViewGridAddIcon,
     current: false,
     children: [
       { name: 'Overview', href: '#' },
@@ -97,13 +124,15 @@ export default function Sidebar() {
                     item.current
                       ? 'bg-gray-100 text-gray-900'
                       : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                    'group w-full flex items-center pl-2 py-2 text-sm font-medium rounded-md',
+                    'group w-full flex items-center pl-2 py-2 text-sm font-medium rounded-md'
                   )}
                 >
                   <item.icon
                     className={classNames(
-                      item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-                      'mr-3 flex-shrink-0 h-6 w-6',
+                      item.current
+                        ? 'text-gray-500'
+                        : 'text-gray-400 group-hover:text-gray-500',
+                      'mr-3 flex-shrink-0 h-6 w-6'
                     )}
                     aria-hidden="true"
                   />
@@ -119,7 +148,7 @@ export default function Sidebar() {
                         item.current
                           ? 'bg-gray-100 text-gray-900'
                           : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                        'group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500',
+                        'group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500'
                       )}
                     >
                       <item.icon
@@ -130,7 +159,7 @@ export default function Sidebar() {
                       <svg
                         className={classNames(
                           open ? 'text-gray-400 rotate-90' : 'text-gray-300',
-                          'ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150',
+                          'ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150'
                         )}
                         viewBox="0 0 20 20"
                         aria-hidden="true"
@@ -152,7 +181,7 @@ export default function Sidebar() {
                   </>
                 )}
               </Disclosure>
-            ),
+            )
           )}
         </nav>
       </div>
