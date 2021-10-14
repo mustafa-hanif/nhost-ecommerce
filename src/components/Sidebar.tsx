@@ -1,10 +1,20 @@
 /* eslint-disable max-len */
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from '@headlessui/react';
-import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon } from '@heroicons/react/outline';
+import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon, InboxInIcon } from '@heroicons/react/outline';
 
 const navigation = [
-  { name: 'Dashboard', icon: HomeIcon, current: true, href: '#' },
+  { name: 'Dashboard', icon: HomeIcon, current: false, href: '/' },
+  {
+    name: 'Orders',
+    icon: InboxInIcon,
+    current: true,
+    children: [
+      { name: 'Orders', href: '/orders' },
+      { name: 'Drafts', href: '#' },
+      { name: 'Abandoned checkouts', href: '#' },
+    ],
+  },
   {
     name: 'Team',
     icon: UsersIcon,
@@ -82,7 +92,7 @@ export default function Sidebar() {
             !item.children ? (
               <div key={item.name}>
                 <a
-                  href="#"
+                  href={item.href}
                   className={classNames(
                     item.current
                       ? 'bg-gray-100 text-gray-900'
