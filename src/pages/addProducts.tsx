@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Router from 'next/router'
+import Description from '../pages/description'
 
 
 
 function addProduct(){
+  const [ValueM,SetValueM]=useState(' Nothing')
+
+  useEffect(()=>{
+  SetValueM('hdi')
+  },[])
+
+  // function h(){
+  //   ValueM ==='NOTHING' ? SetValueM('WHOO') : SetValueM('helloo')
+  // }
     return(
         <>
 
@@ -38,7 +48,15 @@ function addProduct(){
                       </div>
 
                       <div className="col-span-5 w-4/5">
-                        <h1 className='text-center'>being shown</h1>
+                        {
+                          // ()=>{
+                          //   ValueM==='NOTHING' ? SetValueM() :SetValueM(' asda')
+                          // }
+                          ValueM
+                        }
+                         
+
+                       
                       </div>
                     </div>
 
