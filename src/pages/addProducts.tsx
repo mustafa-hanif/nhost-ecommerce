@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Router from 'next/router'
-import Description from '../pages/description'
+// import Description from '../pages/description'
+import { ProductComp ,ThemeComp,DomainComp} from '../pages/description'
+import Signup from '../pages/signup'
+
+
+
 
 
 
 function addProduct(){
-  const [ValueM,SetValueM]=useState(' Nothing')
+  
 
-  useEffect(()=>{
-  SetValueM('hdi')
-  },[])
+
+  // let a =<Description/>
+  const [ValueM,SetValueM]=useState(<ProductComp/>)
+  
+
+
+  // useEffect(()=>{
+  // // SetValueM('hdi')
+  // console.log('page render')
+  // },[])
 
   // function h(){
-  //   ValueM ==='NOTHING' ? SetValueM('WHOO') : SetValueM('helloo')
+  //   ValueM ==='NOTHING' ? SetValueM('WHO') : SetValueM('helloo')
   // }
+
     return(
         <>
-
-
+        
 
 
 <div className='bg-white grid grid-cols-3 gap-4 max-w-7xl mx-auto my-6  ' >
@@ -27,20 +39,31 @@ function addProduct(){
                   <div className="mt-5 flex   bg-white   border-2 border-coolGray-300 border-solid rounded-md h-60">
                     <div className="flex w-full">
 
-                      <div className="flex flex-col bg-gray-300 h-auto  w-2/5">
+                      <div className="flex flex-col bg-gray-100 h-auto  w-2/5">
                         <div className="col-span-2 ">
                           <ul>
-                            <li  className='px-7 mt-7'>
+                            <li onClick={()=>SetValueM(<ProductComp/>)  }   className='px-7 mt-7  border-l-4 border-orange-400  hover:border-warmGray-900'>
 
-                              <h1> <Link href='/' >  Add Producs  </Link> </h1>
+                              <h1>
+                                <button>  
+                                  Add Producs 
+                                  </button> 
+                               </h1>
                             </li>
-                            <li className='px-7 mt-7'>
-                              <h1> <Link href='/'>  Customized Theme </Link> </h1>
+                            <li  onClick={()=>SetValueM(<ThemeComp/>)  }  className='px-7 mt-7  border-l-4 hover:border-warmGray-900 border-orange-400  '>
+                              <h1> 
+                               <button>   Customized Theme </button>
+                               
+                                </h1>
 
                             </li>
-                            <li className='px-7 mt-7'>
+                            <li  onClick={()=>SetValueM(<DomainComp/>)} className='px-7 mt-7  border-l-4 hover:border-warmGray-900 border-orange-400  '>
 
-                              <h1> <Link  href='/'> Add Domain</Link></h1>
+                              <h1>
+                                   <button> 
+                                     Add Domain
+                                     </button>
+                              </h1>
                             </li>
 
                           </ul>
@@ -48,13 +71,7 @@ function addProduct(){
                       </div>
 
                       <div className="col-span-5 w-4/5">
-                        {
-                          // ()=>{
-                          //   ValueM==='NOTHING' ? SetValueM() :SetValueM(' asda')
-                          // }
-                          ValueM
-                        }
-                         
+                        {ValueM}                     
 
                        
                       </div>

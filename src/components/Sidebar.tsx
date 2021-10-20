@@ -14,6 +14,7 @@ import {
   SpeakerphoneIcon,
   ReceiptTaxIcon,
   ViewGridAddIcon,
+  DocumentAddIcon
 } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import AllProducts from '../components/UI/AllProducts';
@@ -42,6 +43,7 @@ const navigation = [
       { name: 'Gift Cards', href: '#' },
     ],
   },
+  
   {
     name: 'Customers',
     icon: UserIcon,
@@ -95,6 +97,19 @@ const navigation = [
       { name: 'Members', href: '#' },
       { name: 'Calendar', href: '#' },
       { name: 'Settings', href: '#' },
+    ],
+  },
+  
+  {
+    name: 'Sales Channel',
+    icon: DocumentAddIcon,
+    current: false,
+    children: [
+      { name: 'All Products', href: '#' },
+      { name: 'Inventory', href: '#' },
+      { name: 'Transfers', href: '#' },
+      { name: 'Collection', href: '#' },
+      { name: 'Gift Cards', href: '#' },
     ],
   },
 ];

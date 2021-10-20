@@ -26,6 +26,7 @@
     "@emotion/styled": "11.3.0",
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
+    "@material-ui/icons": "^4.11.2",
     "@nhost/react-apollo": "1.1.3",
     "@nhost/react-auth": "1.0.5",
     "@tailwindcss/forms": "^0.3.4",
