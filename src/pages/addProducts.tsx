@@ -15,7 +15,7 @@ function addProduct(){
 
 
   // let a =<Description/>
-  const [ValueM,SetValueM]=useState(<ProductComp/>)
+  const [ValueM,SetValueM]=useState(<></>)
   
 
 
@@ -27,11 +27,14 @@ function addProduct(){
   // function h(){
   //   ValueM ==='NOTHING' ? SetValueM('WHO') : SetValueM('helloo')
   // }
+  
 
+  useEffect(()=>{
+   SetValueM(<ProductComp/>) 
+  },[])
     return(
         <>
         
-
 
 <div className='bg-white grid grid-cols-3 gap-4 max-w-7xl mx-auto my-6  ' >
                 <div className="col-span-5  ">
@@ -46,7 +49,7 @@ function addProduct(){
 
                               <h1>
                                 <button>  
-                                  Add Producs 
+                                  Add Products
                                   </button> 
                                </h1>
                             </li>
