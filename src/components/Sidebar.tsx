@@ -3,7 +3,7 @@
 import { Disclosure } from '@headlessui/react';
 import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, UserIcon, TagIcon, InboxIcon,InboxInIcon, UsersIcon, SpeakerphoneIcon, ReceiptTaxIcon, ViewGridAddIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
-
+import AllProducts from '../components/UI/AllProducts';
 
 const navigation = [
   { name: 'Home', icon: HomeIcon, current: true, href: '#' },
@@ -23,8 +23,8 @@ const navigation = [
     name: 'Products',
     icon: TagIcon,
     current: false,
-    children: [
-      { name: 'All Products', href: '#' },
+     children: [
+      { name: 'All Products', href: '#'},
       { name: 'Inventory', href: '#' },
       { name: 'Transfers', href: '#' },
       { name: 'Collection', href: '#' },
@@ -92,9 +92,11 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
+
+
 export default function Sidebar() {
 
-
+  
 
   return (
     <div className="flex flex-col w-72 border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
