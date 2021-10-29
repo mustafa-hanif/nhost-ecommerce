@@ -4,7 +4,6 @@ import { Disclosure } from '@headlessui/react';
 import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, UserIcon, TagIcon, InboxIcon,InboxInIcon, UsersIcon, SpeakerphoneIcon, ReceiptTaxIcon, ViewGridAddIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import AllProducts from '../components/UI/AllProducts';
-
 const navigation = [
   { name: 'Home', icon: HomeIcon, current: true, href: '#' },
 
@@ -99,7 +98,7 @@ export default function Sidebar() {
   
 
   return (
-    <div className="flex flex-col w-72 border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
+    <div className="flex flex-col w-1/5 h-screen  border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
       <div className="flex items-center flex-shrink-0 px-4">
         <img
           className="h-8 w-auto"
@@ -107,8 +106,8 @@ export default function Sidebar() {
           alt="Workflow"
         />
       </div>
-      <div className="mt-5 flex flex-col">
-        <nav className="flex-1 px-2 space-y-1 bg-white" aria-label="Sidebar">
+      <div className="mt-5 flex flex-col w-full">
+        <nav className="flex-1 px-2 space-y-1  bg-white" aria-label="Sidebar">
           {navigation.map((item) =>
             !item.children ? (
               <div key={item.name}>

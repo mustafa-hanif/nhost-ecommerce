@@ -38,7 +38,9 @@ import {
   WrapItem,
 } from '@chakra-ui/react';
 
+// Internally, we transform to this
 function AllProducts() {
+
   return (
     <main className="block  bg-gray-100 p-6 pl-10 h-screen w-full ">
       <div className="flex  justify-end  content-around flex-row h-auto w-full flex-wrap justify-between">
@@ -59,7 +61,7 @@ function AllProducts() {
       </div>
 
       <div className="">
-        <div className=" shadow-md p-6 bg-white rounded space-y-4 w-full mt-6 	 ">
+        <div className=" shadow-md p-6 bg-white rounded space-y-4 w-full mt-6 ">
           <div className="flex flex-wrap flex-col rounded-md border-gray-300">
             <div className="flex flex-wrap flex-row list-none cursor-pointer ">
               <li className=" text-lg text-center	 w-14 h-10  border-b-4  border-green-800 rounded">
@@ -152,7 +154,7 @@ function AllProducts() {
             </div>
           </div>
 
-          <Table variant="">
+          <Table variant="" className="">
             <Thead>
               <Tr>
                 <Th>
