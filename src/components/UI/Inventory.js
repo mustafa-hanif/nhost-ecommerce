@@ -117,7 +117,7 @@ function Inventory() {
               </Select>
             </div>
 
-            <Divider />
+            
             <Table variant="" className="">
               <Thead>
                 <Tr>
@@ -169,10 +169,10 @@ function Inventory() {
 
                   <Td>Active</Td>
 
-                  <Td>32 in Stock</Td>
-                  <Td>Bag</Td>
+                  <Td>Stop selling</Td>
+                  <Td isNumeric>0</Td>
 
-                  <Td>hofoho6846</Td>
+                  <Td isNumeric>1</Td>
                   <Td>
                     <div className="flex flex-row ">
                       <button className="w-14 h-8 border  border-gray-300 rounded font-medium bg-gray-500 text-white">
