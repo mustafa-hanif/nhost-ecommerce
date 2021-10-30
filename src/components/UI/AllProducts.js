@@ -7,7 +7,6 @@ import {
   InfoIcon,
   ExternalLinkIcon,
 } from '@chakra-ui/icons';
-
 import {
   Input,
   InputGroup,

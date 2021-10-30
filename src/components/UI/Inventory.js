@@ -117,7 +117,6 @@ function Inventory() {
               </Select>
             </div>
 
-            
             <Table variant="" className="">
               <Thead>
                 <Tr>
