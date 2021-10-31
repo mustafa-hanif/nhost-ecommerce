@@ -1,22 +1,24 @@
-import React , { useState }from 'react';
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {
   Divider,
   Center,
   Select,
-  IconButton,
-  InputGroup,
   InputLeftElement,
   Input,
   Button,
-  ButtonGroup,
+  Popover,
+  PopoverContent,
+  PopoverBody,
+  PopoverTrigger ,
+  InputGroup 
+  
 } from '@chakra-ui/react';
 
-import { SearchIcon, CalendarIcon } from '@chakra-ui/icons';
+import { SearchIcon, CalendarIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
 function Transfers() {
-    
   const [startDate, setStartDate] = useState(new Date());
 
   return (
@@ -49,19 +51,33 @@ function Transfers() {
             <div className="w-3/6 mr-5">
               <h2 className="font-medium text-sm">ORIGIN</h2>
 
-              <Select
-                size="lg"
-                variant="unstyled"
-                placeholder="Select Origin"
-                borderColor="white"
-                focusBorderColor="white"
-                className="mt-4 w-72 bg-red-400 h-72 text-gray-400 font-medium"
-              >
-                <Button colorScheme="blue">Button</Button>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </Select>
+              <Popover>
+                <PopoverTrigger>
+                  <Button colorScheme="blackAlpha" variant="ghost" size="lg">
+                    Select Origin <ChevronDownIcon className="ml-3" />{' '}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent borderColor="white">
+                  <PopoverBody>
+                    <Input placeholder="Search" />
+                    <h3 className="mt-5 ml-3 font-medium text-xs">SUPPLIERS</h3>
+                    <Divider />
+                    <Button
+                      colorScheme="blackAlpha"
+                      variant="ghost"
+                      size="sm"
+                      className="mt-3"
+                    >
+                      No supplier found
+                    </Button>
+                    <Divider />
+
+                    <h4 className="text-blue-500 mt-5 ml-3 mb-4 cursor-pointer hover:underline">
+                      Create new supplier
+                    </h4>
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
             </div>
             <Center height="80px">
               <Divider orientation="vertical" />
@@ -69,25 +85,26 @@ function Transfers() {
 
             <div className="w-3/6 ml-5 ">
               <h2 className="font-medium text-sm">DESTINATION</h2>
-
-              <Select
-                size="lg"
-                variant="unstyled"
-                placeholder="Select destination"
-                borderColor="white"
-                focusBorderColor="white"
-                className="mt-4 w-72 bg-red-400 h-72 text-gray-400 font-medium"
-              >
-                <option>
-                  {' '}
-                  <input
-                    type="text"
-                    className="border border-red-500 rounded"
-                  ></input>
-                </option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </Select>
+              <Popover>
+                <PopoverTrigger>
+                  <Button colorScheme="blackAlpha" variant="ghost" size="lg">
+                    Select destination <ChevronDownIcon className="ml-3" />{' '}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverBody>
+                    <Input placeholder="Search" />
+                    <Button
+                      colorScheme="blackAlpha"
+                      variant="ghost"
+                      size="md"
+                      className="mt-3"
+                    >
+                      Burj Khalifa{' '}
+                    </Button>
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
             </div>
           </div>
         </div>
