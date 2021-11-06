@@ -27,9 +27,11 @@ import {
   AlertDialogCloseButton,
   useDisclosure,
   PopoverArrow,
+  IconButton
 } from '@chakra-ui/react';
 
-import { SearchIcon, CalendarIcon, ChevronDownIcon } from '@chakra-ui/icons';
+import { SearchIcon, CalendarIcon, ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { SDLValidationContext } from 'graphql/validation/ValidationContext';
 
 
 function Transfers() {
@@ -51,10 +53,19 @@ function Transfers() {
     onClose: onThreeClose,
   } = useDisclosure();
 
- 
+
+  const {
+    isOpen: isFourOpen,
+    onOpen: onFourOpen,
+    onClose: onFourClose,
+  } = useDisclosure();
+
+const [destination, setDestination]=useState("Select destination")
   var [country, setCountry] = useState('Pakistan');
   var [region, setRegion] = useState('Karachi');
   var val;
+
+  const [location,setLocation]=useState("Dubai");
 
   function selectCountry(val) {
     setCountry(val);
@@ -63,6 +74,8 @@ function Transfers() {
   function selectRegion(val) {
     setRegion(val);
   }
+
+  function handleClick(e) {    e.preventDefault();    console.log('The link was clicked.');  }
 
 
   return (
@@ -242,7 +255,7 @@ function Transfers() {
               <Popover>
                 <PopoverTrigger>
                   <Button colorScheme="blackAlpha" variant="ghost" size="lg">
-                    Select destination <ChevronDownIcon className="ml-3" />{' '}
+                   {destination} <ChevronDownIcon className="ml-3" />{' '}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent>
@@ -253,8 +266,12 @@ function Transfers() {
                       variant="ghost"
                       size="md"
                       className="mt-3"
-                    >
-                      Burj Khalifa{' '}
+                      
+                                >
+                    <value onClick={() => setDestination(location)} >
+                          {/* Burj Khalifa{' '} */}
+                          {location}
+                    </value>
                     </Button>
                   </PopoverBody>
                 </PopoverContent>
@@ -436,9 +453,168 @@ function Transfers() {
               colorScheme="whiteAlpha"
               color="black"
               className="ml-2 border border-gray-300 rounded"
+              onClick={onFourOpen}
+
             >
               Browse
             </Button>
+            <AlertDialog
+                      motionPreset="slideInBottom"
+                      leastDestructiveRef={cancelRef}
+                      onClose={onFourClose}
+                      isOpen={isFourOpen}
+                      size="2xl"
+                      closeOnEsc="true"
+                      preserveScrollBarGap="true"
+                      useInert="true"
+                    >
+                      <AlertDialogOverlay />
+                      <AlertDialogContent>
+                        <AlertDialogHeader>Add Products</AlertDialogHeader>
+                        <Divider />
+                        <AlertDialogCloseButton size="lg" />
+                        <AlertDialogBody>
+                
+                        <InputGroup className="ml-2 mt-3">
+              <InputLeftElement
+                pointerEvents="none"
+                children={<SearchIcon color="gray.600" />}
+              />
+
+              <Input
+
+                type="tel"
+                placeholder="Search products"
+                onKeyPress={onOpen}
+              />
+              </InputGroup>
+<Divider/>
+
+
+  {/* <Button
+   mr="-px"   width="90%" variant="unstyled"
+   paddingLeft="-20"
+  >Save</Button>
+  <IconButton aria-label="Add to friends" variant="unstyled" icon={<CalendarIcon />} /> */}
+<div className="flex flex-wrap flex-row w-full">
+
+<div className="w-11/12 p-3">
+Add Products
+    </div>
+    <div>
+    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+        </div>
+    </div>
+    <Divider/>
+    <div className="flex flex-wrap flex-row w-full">
+
+<div className="w-11/12 p-3">
+Popular Products
+    </div>
+    <div>
+    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+        </div>
+    </div>
+
+    <Divider/>
+
+    <div className="flex flex-wrap flex-row w-full">
+
+<div className="w-11/12 p-3">
+Collections
+    </div>
+    <div>
+    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+        </div>
+    </div>
+
+<Divider/>
+
+    <div className="flex flex-wrap flex-row w-full">
+
+<div className="w-11/12 p-3">
+Product Types
+    </div>
+    <div>
+    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+        </div>
+    </div>
+
+    <Divider/>
+
+    <div className="flex flex-wrap flex-row w-full">
+
+<div className="w-11/12 p-3">
+Tags
+    </div>
+    <div>
+    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+        </div>
+    </div>
+<Divider/>
+
+    <div className="flex flex-wrap flex-row w-full">
+
+<div className="w-11/12 p-3">
+Vendors
+    </div>
+    <div>
+    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+        </div>
+    </div>
+
+<Divider/>
+
+
+                          <AlertDialogHeader></AlertDialogHeader>
+                          <Divider />
+                        </AlertDialogBody>
+                        <AlertDialogFooter>
+                            <div className="flex flex-row flex-wrap  w-full">
+
+                                <div className="w-3/6 ">
+
+                                <Button
+                            borderRadius="5px"
+                            borderColor="gray.400"
+                            ref={cancelRef}
+                            onClick={onFourClose}
+                            variant="outline"
+                            background="gray.100"
+                          >
+                           {0} variants selected
+                          </Button>
+
+                                    </div>
+
+
+                                    <div className="ml-12">
+                          <Button
+                            borderRadius="5px"
+                            borderColor="gray.400"
+                            ref={cancelRef}
+                            onClick={onFourClose}
+                            variant="outline"
+                          >
+                            Cancel
+                          </Button>
+
+                          <Button
+                            borderRadius="3px"
+                            borderColor="gray.400"
+                            padding="4"
+                             ml={3}
+                            variant="solid"
+                            background="gray.100"
+                          >
+                            Add to transfer
+                          </Button>
+</div>
+
+                          </div>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
           </div>
         </div>
 
@@ -468,7 +644,16 @@ function Transfers() {
                 <option value="option3">Canpar</option>
                 <option value="option3">DPD</option>
                 <option value="option3">DHL Express</option>
-                <option value="option3">FedEx</option>
+                <option value="option3">Advanced Cargo and Shipping LLC </option>
+                <option value="option3">Merit Freight Systems Company LLC</option>
+                <option value="option3">Blue Peter Lines LLC </option>
+                <option value="option3">Orchid Shipping LLC</option>
+                <option value="option3">Choice International</option>
+                <option value="option3">Gulf Marine Services (GMS)</option>
+                <option value="option3">United Arab Shipping Compa</option>
+                <option value="option3">Modern Freight Company (MFC)</option>
+                <option value="option3">Abu Dhabi Terminals (ADT)</option>
+                
               </Select>
             </div>
           </div>
@@ -518,6 +703,8 @@ function Transfers() {
                           <Divider />
                         </AlertDialogBody>
                         <AlertDialogFooter>
+                        
+                        
                           <Button
                             borderRadius="5px"
                             borderColor="gray.400"
@@ -539,16 +726,30 @@ function Transfers() {
                           >
                             Apply changes
                           </Button>
+
+                          
                         </AlertDialogFooter>
                       </AlertDialogContent>
                     </AlertDialog>
 
               </div>
-              <input
+              
+              <Popover placement="top-start">
+  <PopoverTrigger>
+  <input
                 type="text"
                 className="border border-gray-300 rounded w-full"
                 placeholder="Urgent, reviewed,wholesale"
               ></input>
+  </PopoverTrigger>
+  <PopoverContent>
+    
+    <PopoverBody>
+     <h2 className="text-base text-gray-400">Frequently used tags { }</h2>
+     
+    </PopoverBody>
+  </PopoverContent>
+</Popover>
             </div>
           </div>
         </div>

@@ -16,8 +16,6 @@ import {
   MenuList,
   MenuItem,
   Divider,
-  Wrap,
-  WrapItem,
   Table,
   Thead,
   Tr,
