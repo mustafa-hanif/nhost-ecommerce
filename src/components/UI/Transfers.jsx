@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import {
   CountryDropdown,
   RegionDropdown,
@@ -27,7 +26,7 @@ import {
   AlertDialogCloseButton,
   useDisclosure,
   PopoverArrow,
-  IconButton
+  IconButton,
 } from '@chakra-ui/react';
 
 import { SearchIcon, CalendarIcon, ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
@@ -60,12 +59,12 @@ function Transfers() {
     onClose: onFourClose,
   } = useDisclosure();
 
-const [destination, setDestination]=useState("Select destination")
+  const [destination, setDestination] = useState('Select destination');
   var [country, setCountry] = useState('Pakistan');
   var [region, setRegion] = useState('Karachi');
   var val;
 
-  const [location,setLocation]=useState("Dubai");
+  const [location, setLocation] = useState('Dubai');
 
   function selectCountry(val) {
     setCountry(val);
@@ -255,7 +254,7 @@ const [destination, setDestination]=useState("Select destination")
               <Popover>
                 <PopoverTrigger>
                   <Button colorScheme="blackAlpha" variant="ghost" size="lg">
-                   {destination} <ChevronDownIcon className="ml-3" />{' '}
+                    {destination} <ChevronDownIcon className="ml-3" />{' '}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent>
@@ -267,11 +266,11 @@ const [destination, setDestination]=useState("Select destination")
                       size="md"
                       className="mt-3"
                       
-                                >
-                    <value onClick={() => setDestination(location)} >
-                          {/* Burj Khalifa{' '} */}
-                          {location}
-                    </value>
+                    >
+                      <value onClick={() => setDestination(location)} >
+                        {/* Burj Khalifa{' '} */}
+                        {location}
+                      </value>
                     </Button>
                   </PopoverBody>
                 </PopoverContent>
@@ -393,15 +392,15 @@ const [destination, setDestination]=useState("Select destination")
                       ></input>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="text-gray-600 h-8 w-24"
+                        className="text-gray-600 h-8 w-24"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                         />
                       </svg>
@@ -459,162 +458,162 @@ const [destination, setDestination]=useState("Select destination")
               Browse
             </Button>
             <AlertDialog
-                      motionPreset="slideInBottom"
-                      leastDestructiveRef={cancelRef}
-                      onClose={onFourClose}
-                      isOpen={isFourOpen}
-                      size="2xl"
-                      closeOnEsc="true"
-                      preserveScrollBarGap="true"
-                      useInert="true"
-                    >
-                      <AlertDialogOverlay />
-                      <AlertDialogContent>
-                        <AlertDialogHeader>Add Products</AlertDialogHeader>
-                        <Divider />
-                        <AlertDialogCloseButton size="lg" />
-                        <AlertDialogBody>
+              motionPreset="slideInBottom"
+              leastDestructiveRef={cancelRef}
+              onClose={onFourClose}
+              isOpen={isFourOpen}
+              size="2xl"
+              closeOnEsc="true"
+              preserveScrollBarGap="true"
+              useInert="true"
+            >
+              <AlertDialogOverlay />
+              <AlertDialogContent>
+                <AlertDialogHeader>Add Products</AlertDialogHeader>
+                <Divider />
+                <AlertDialogCloseButton size="lg" />
+                <AlertDialogBody>
                 
-                        <InputGroup className="ml-2 mt-3">
-              <InputLeftElement
-                pointerEvents="none"
-                children={<SearchIcon color="gray.600" />}
-              />
+                  <InputGroup className="ml-2 mt-3">
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<SearchIcon color="gray.600" />}
+                    />
 
-              <Input
+                    <Input
 
-                type="tel"
-                placeholder="Search products"
-                onKeyPress={onOpen}
-              />
-              </InputGroup>
-<Divider/>
+                      type="tel"
+                      placeholder="Search products"
+                      onKeyPress={onOpen}
+                    />
+                  </InputGroup>
+                  <Divider/>
 
 
-  {/* <Button
+                  {/* <Button
    mr="-px"   width="90%" variant="unstyled"
    paddingLeft="-20"
   >Save</Button>
   <IconButton aria-label="Add to friends" variant="unstyled" icon={<CalendarIcon />} /> */}
-<div className="flex flex-wrap flex-row w-full">
+                  <div className="flex flex-wrap flex-row w-full">
 
-<div className="w-11/12 p-3">
+                    <div className="w-11/12 p-3">
 Add Products
-    </div>
-    <div>
-    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
-        </div>
-    </div>
-    <Divider/>
-    <div className="flex flex-wrap flex-row w-full">
+                    </div>
+                    <div>
+                      <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+                    </div>
+                  </div>
+                  <Divider/>
+                  <div className="flex flex-wrap flex-row w-full">
 
-<div className="w-11/12 p-3">
+                    <div className="w-11/12 p-3">
 Popular Products
-    </div>
-    <div>
-    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
-        </div>
-    </div>
+                    </div>
+                    <div>
+                      <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+                    </div>
+                  </div>
 
-    <Divider/>
+                  <Divider/>
 
-    <div className="flex flex-wrap flex-row w-full">
+                  <div className="flex flex-wrap flex-row w-full">
 
-<div className="w-11/12 p-3">
+                    <div className="w-11/12 p-3">
 Collections
-    </div>
-    <div>
-    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
-        </div>
-    </div>
+                    </div>
+                    <div>
+                      <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+                    </div>
+                  </div>
 
-<Divider/>
+                  <Divider/>
 
-    <div className="flex flex-wrap flex-row w-full">
+                  <div className="flex flex-wrap flex-row w-full">
 
-<div className="w-11/12 p-3">
+                    <div className="w-11/12 p-3">
 Product Types
-    </div>
-    <div>
-    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
-        </div>
-    </div>
+                    </div>
+                    <div>
+                      <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+                    </div>
+                  </div>
 
-    <Divider/>
+                  <Divider/>
 
-    <div className="flex flex-wrap flex-row w-full">
+                  <div className="flex flex-wrap flex-row w-full">
 
-<div className="w-11/12 p-3">
+                    <div className="w-11/12 p-3">
 Tags
-    </div>
-    <div>
-    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
-        </div>
-    </div>
-<Divider/>
+                    </div>
+                    <div>
+                      <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+                    </div>
+                  </div>
+                  <Divider/>
 
-    <div className="flex flex-wrap flex-row w-full">
+                  <div className="flex flex-wrap flex-row w-full">
 
-<div className="w-11/12 p-3">
+                    <div className="w-11/12 p-3">
 Vendors
-    </div>
-    <div>
-    <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
-        </div>
-    </div>
+                    </div>
+                    <div>
+                      <IconButton aria-label="Add to friends" variant="unstyled" icon={<ChevronRightIcon boxSize={6} color="gray.500" />} />
+                    </div>
+                  </div>
 
-<Divider/>
-
-
-                          <AlertDialogHeader></AlertDialogHeader>
-                          <Divider />
-                        </AlertDialogBody>
-                        <AlertDialogFooter>
-                            <div className="flex flex-row flex-wrap  w-full">
-
-                                <div className="w-3/6 ">
-
-                                <Button
-                            borderRadius="5px"
-                            borderColor="gray.400"
-                            ref={cancelRef}
-                            onClick={onFourClose}
-                            variant="outline"
-                            background="gray.100"
-                          >
-                           {0} variants selected
-                          </Button>
-
-                                    </div>
+                  <Divider/>
 
 
-                                    <div className="ml-12">
-                          <Button
-                            borderRadius="5px"
-                            borderColor="gray.400"
-                            ref={cancelRef}
-                            onClick={onFourClose}
-                            variant="outline"
-                          >
+                  <AlertDialogHeader></AlertDialogHeader>
+                  <Divider />
+                </AlertDialogBody>
+                <AlertDialogFooter>
+                  <div className="flex flex-row flex-wrap  w-full">
+
+                    <div className="w-3/6 ">
+
+                      <Button
+                        borderRadius="5px"
+                        borderColor="gray.400"
+                        ref={cancelRef}
+                        onClick={onFourClose}
+                        variant="outline"
+                        background="gray.100"
+                      >
+                        {0} variants selected
+                      </Button>
+
+                    </div>
+
+
+                    <div className="ml-12">
+                      <Button
+                        borderRadius="5px"
+                        borderColor="gray.400"
+                        ref={cancelRef}
+                        onClick={onFourClose}
+                        variant="outline"
+                      >
                             Cancel
-                          </Button>
+                      </Button>
 
-                          <Button
-                            borderRadius="3px"
-                            borderColor="gray.400"
-                            padding="4"
-                             ml={3}
-                            variant="solid"
-                            background="gray.100"
-                          >
+                      <Button
+                        borderRadius="3px"
+                        borderColor="gray.400"
+                        padding="4"
+                        ml={3}
+                        variant="solid"
+                        background="gray.100"
+                      >
                             Add to transfer
-                          </Button>
-</div>
+                      </Button>
+                    </div>
 
-                          </div>
-                        </AlertDialogFooter>
-                      </AlertDialogContent>
-                    </AlertDialog>
+                  </div>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
         </div>
 
@@ -675,81 +674,81 @@ Vendors
                 </h3>
 
                 <AlertDialog
-                      motionPreset="slideInBottom"
-                      leastDestructiveRef={cancelRef}
-                      onClose={onThreeClose}
-                      isOpen={isThreeOpen}
-                      size="2xl"
-                      closeOnEsc="true"
-                      preserveScrollBarGap="true"
-                      useInert="true"
-                    >
-                      <AlertDialogOverlay />
-                      <AlertDialogContent>
-                        <AlertDialogHeader>Create supplier</AlertDialogHeader>
-                        <Divider />
-                        <AlertDialogCloseButton size="lg" />
-                        <AlertDialogBody>
+                  motionPreset="slideInBottom"
+                  leastDestructiveRef={cancelRef}
+                  onClose={onThreeClose}
+                  isOpen={isThreeOpen}
+                  size="2xl"
+                  closeOnEsc="true"
+                  preserveScrollBarGap="true"
+                  useInert="true"
+                >
+                  <AlertDialogOverlay />
+                  <AlertDialogContent>
+                    <AlertDialogHeader>Create supplier</AlertDialogHeader>
+                    <Divider />
+                    <AlertDialogCloseButton size="lg" />
+                    <AlertDialogBody>
                          
-                         <h2 className="font-medium text-sm mt-5 mb-5">APPLIED TAGS</h2>
-                         <p className="mb-5">Select previously used tags from the list below to add them to this transfer.
+                      <h2 className="font-medium text-sm mt-5 mb-5">APPLIED TAGS</h2>
+                      <p className="mb-5">Select previously used tags from the list below to add them to this transfer.
 
-</p>
-<Divider/>
-<h2  className="font-medium text-sm mt-5 mb-5">All Tags</h2>
+                      </p>
+                      <Divider/>
+                      <h2  className="font-medium text-sm mt-5 mb-5">All Tags</h2>
 
 
-                          <AlertDialogHeader></AlertDialogHeader>
-                          <Divider />
-                        </AlertDialogBody>
-                        <AlertDialogFooter>
+                      <AlertDialogHeader></AlertDialogHeader>
+                      <Divider />
+                    </AlertDialogBody>
+                    <AlertDialogFooter>
                         
                         
-                          <Button
-                            borderRadius="5px"
-                            borderColor="gray.400"
-                            ref={cancelRef}
-                            onClick={onThreeClose}
-                            variant="outline"
-                          >
+                      <Button
+                        borderRadius="5px"
+                        borderColor="gray.400"
+                        ref={cancelRef}
+                        onClick={onThreeClose}
+                        variant="outline"
+                      >
                             Cancel
-                          </Button>
+                      </Button>
 
-                          <Button
-                            borderRadius="3px"
-                            borderColor="gray.400"
-                            padding="4"
-                            background="gray.300"
-                            colorScheme="green"
-                            ml={6}
-                            variant="solid"
-                          >
+                      <Button
+                        borderRadius="3px"
+                        borderColor="gray.400"
+                        padding="4"
+                        background="gray.300"
+                        colorScheme="green"
+                        ml={6}
+                        variant="solid"
+                      >
                             Apply changes
-                          </Button>
+                      </Button>
 
                           
-                        </AlertDialogFooter>
-                      </AlertDialogContent>
-                    </AlertDialog>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
 
               </div>
               
               <Popover placement="top-start">
-  <PopoverTrigger>
-  <input
-                type="text"
-                className="border border-gray-300 rounded w-full"
-                placeholder="Urgent, reviewed,wholesale"
-              ></input>
-  </PopoverTrigger>
-  <PopoverContent>
+                <PopoverTrigger>
+                  <input
+                    type="text"
+                    className="border border-gray-300 rounded w-full"
+                    placeholder="Urgent, reviewed,wholesale"
+                  ></input>
+                </PopoverTrigger>
+                <PopoverContent>
     
-    <PopoverBody>
-     <h2 className="text-base text-gray-400">Frequently used tags { }</h2>
+                  <PopoverBody>
+                    <h2 className="text-base text-gray-400">Frequently used tags { }</h2>
      
-    </PopoverBody>
-  </PopoverContent>
-</Popover>
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
             </div>
           </div>
         </div>

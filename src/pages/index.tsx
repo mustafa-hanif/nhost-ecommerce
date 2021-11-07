@@ -35,7 +35,7 @@ function Index() {
       <main className="flex">
         <Sidebar />
         <Routes/>
-            </main>
+      </main>
             
     </>
   );
