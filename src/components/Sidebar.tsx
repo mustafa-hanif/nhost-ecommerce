@@ -14,7 +14,7 @@ import {
   SpeakerphoneIcon,
   ReceiptTaxIcon,
   ViewGridAddIcon,
-  DocumentAddIcon
+  DocumentAddIcon,
 } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import AllProducts from '../components/UI/AllProducts';
